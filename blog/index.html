@@ -1,0 +1,51 @@
+---
+layout: page
+title: Tags
+---
+
+<div class="tags-expo">
+
+{% comment %}
+=======================
+Retrieve all tags in the help collection.
+=======================
+{% endcomment %}
+
+{% assign tags =  site.help | map: 'tags' | join: ','  | split: ',' | uniq %}
+
+{% comment %}
+=======================
+List all tags in the help collection.
+=======================
+{% endcomment %}
+
+<div class="tags-expo-list">
+  {% for tag in tags %}
+    <a href='#{{ tag | slugify }}' class="post-tag">{{ tag }}</a>
+  {% endfor %}
+</div>
+
+<hr>
+
+{% comment %}
+=======================
+List all your pages by and within a given tag.
+=======================
+{% endcomment %}
+
+<div class="tags-expo-section">
+{% for tag in tags %}
+  <h2 id='{{ tag | slugify }}'>{{ tag }}</h2>
+  <ul>
+  {% for help in site.help %}
+    {% if help.tags contains tag %}
+    <li>
+      <a href='{{ site.baseurl }}{{ help.url }}'>{{ help.title }}</a>
+    </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+{% endfor %}
+</div>
+
+</div>
