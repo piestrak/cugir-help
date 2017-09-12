@@ -1,27 +1,27 @@
 ---
 layout: page
-title: Tags
+title: Categories
 ---
 
 <div class="tags-expo">
 
 {% comment %}
 =======================
-Retrieve all tags in the help collection.
+Retrieve all categories in the help collection.
 =======================
 {% endcomment %}
 
-{% assign tags =  site.help | map: 'tags' | join: ','  | split: ',' | uniq %}
+{% assign categories =  site.help | map: 'categories' | join: ','  | split: ',' | uniq %}
 
 {% comment %}
 =======================
-List all tags in the help collection.
+List all categories in the help collection.
 =======================
 {% endcomment %}
 
 <div class="tags-expo-list">
-  {% for tag in tags %}
-    <a href='#{{ tag | slugify }}' class="post-tag">{{ tag }}</a>
+  {% for category in categories %}
+    <a href='#{{ category | slugify }}' class="post-tag">{{ category }}</a>
   {% endfor %}
 </div>
 
@@ -34,11 +34,11 @@ List all your pages by and within a given tag.
 {% endcomment %}
 
 <div class="tags-expo-section">
-{% for tag in tags %}
-  <h2 id='{{ tag | slugify }}'>{{ tag }}</h2>
+{% for category in categories %}
+  <h2 id='{{ category | slugify }}'>{{ category }}</h2>
   <ul>
   {% for help in site.help %}
-    {% if help.tags contains tag %}
+    {% if help.categories contains category %}
     <li>
       <a href='{{ site.baseurl }}{{ help.url }}'>{{ help.title }}</a>
     </li>
