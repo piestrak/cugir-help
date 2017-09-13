@@ -1,0 +1,15 @@
+---
+layout: page
+title: Drafts
+---
+
+List of pages with `status: draft`:
+
+<ul>
+{% assign drafts = site.help | where:"status","draft" | sort:"title" %}
+{% for page in drafts %}
+<li><a href="https://github.com/cul-it/cugir-help/blob/master/{{page.path}}">{{page.title}}</a></li>
+{% endfor %}
+</ul>
+
+(If nothing is listed, then there are no drafts!)
