@@ -1,3 +1,3 @@
 # cugir-help
 
-https://dbranchini.github.io/cugir-help/
+https://cul-it.github.io/cugir-help/
