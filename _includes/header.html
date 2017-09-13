@@ -20,7 +20,7 @@
           </span>
         </label>
 
-        <div class="trigger">
+        <div id="trigger" class="trigger">
           <!-- START kek245 - Remove dynamically created page links -->
           <!-- {% for path in page_paths %}
             {% assign my_page = site.pages | where: "path", path | first %}
@@ -30,9 +30,27 @@
           {% endfor %} -->
           <!-- END kek245 - Remove dynamically created page links -->
           <a class="page-link" href='{{ "/" | relative_url }}'>All Categories</a>
+          <a id="closeNavBtn" class="close-nav">&times;</a>
           <a class="page-link" href="https://cugir.library.cornell.edu">Return to CUGIR</a>
         </div>
       </nav>
     {% endif %}
   </div>
+  <script>
+    $(document).ready(function() {
+      $('#nav-trigger').on('click', function(e) {
+        e.stopPropagation();
+        $('.trigger').toggleClass('trigger-open');
+      });
+      $('#closeNavBtn').on('click', function(e) {
+        e.stopPropagation();
+        $('.trigger').toggleClass('trigger-open');
+      });
+      $(document).click(function(e) {
+        if ( $(e.target).closest('.trigger').length === 0 ) {
+          $('.trigger').removeClass('trigger-open');
+        }
+      });
+    });
+  </script>
 </header>

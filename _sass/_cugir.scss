@@ -20,18 +20,23 @@
 
 .site-nav {
 	line-height: 40px;
-	.page-link {
-		background-color: #8fC349;
-		padding: 10px 25px 13px;
-		color: #ffffff;
-		&:not(:last-child) {
-			margin-right: 0;
+	.trigger {
+		a.close-nav {
+			display: none;
 		}
-		&:first-child {
-			border-bottom-left-radius: 1.2em;
-		}
-		&:last-child {
-			border-bottom-right-radius: 1.2em;
+		.page-link {
+			background-color: #8fC349;
+			padding: 10px 25px 13px;
+			color: #ffffff;
+			&:not(:last-child) {
+				margin-right: 0;
+			}
+			&:first-child {
+				border-bottom-left-radius: 1.2em;
+			}
+			&:last-child {
+				border-bottom-right-radius: 1.2em;
+			}
 		}
 	}
 }
@@ -42,4 +47,77 @@ hr {
 
 .footer-heading {
 	margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+	.site-nav {
+		position: absolute;
+		top: 9px;
+		right: 15px;
+		background-color: #fdfdfd;
+		border: 1px solid #e8e8e8;
+		border-radius: 5px;
+		text-align: right;
+		input {
+			clear:both;
+			display: none;
+		}
+		input ~ .trigger, input:checked ~ .trigger {
+			display: block;
+		}
+		label[for="nav-trigger"] {
+			display: block;
+			float: right;
+			width: 36px;
+			height: 36px;
+			z-index: 2;
+			cursor: pointer;
+		}
+		.menu-icon {
+			display: block;
+			float: right;
+			width: 36px;
+			height: 26px;
+			line-height: 0;
+			padding-top: 10px;
+			text-align: center;
+		}
+		.trigger {
+			height: 100%;
+			width: 0;
+			position: fixed;
+			z-index: 1005;
+			top: 0;
+			right: 0;
+			background-color: #5C626D;
+			overflow-x: hidden;
+			overflow-y: auto;
+			padding-top: 60px;
+			transition: 0.5s;
+			box-shadow: -5px 0 8px -2px #888;
+			a.close-nav {
+				display: block;
+			    position: absolute;
+			    top: 0;
+			    left: 25px;
+			    color: #fff;
+			    font-size: 40px;
+			    &:hover {
+			      text-decoration: none;
+			      cursor: pointer;
+			    }
+			}
+			.page-link {
+				display: block;
+				background-color: transparent;
+				float: none;
+				text-align: left;
+				font-size: 25px;
+				line-height: 35px;
+			}
+		}
+		.trigger-open {
+			width: 300px;
+		}
+	}
 }
