@@ -1,0 +1,45 @@
+.site-header {
+	border-top: none;
+	border-bottom: 1px solid #5C626D;
+	background-color: #ffffff;
+}
+.site-title {
+	padding: 15px 0;
+	width: 275px;
+	color: #ffffff;
+}
+.tags-expo .tags-expo-section, .contact-list, article {
+	a {
+		text-decoration: none;
+	}
+	a:hover {
+		color: #c2601a;
+		text-decoration: underline;
+	}
+}
+
+.site-nav {
+	line-height: 40px;
+	.page-link {
+		background-color: #8fC349;
+		padding: 10px 25px 13px;
+		color: #ffffff;
+		&:not(:last-child) {
+			margin-right: 0;
+		}
+		&:first-child {
+			border-bottom-left-radius: 1.2em;
+		}
+		&:last-child {
+			border-bottom-right-radius: 1.2em;
+		}
+	}
+}
+
+hr {
+	margin: 15px 0;
+}
+
+.footer-heading {
+	margin-bottom: 0;
+}
