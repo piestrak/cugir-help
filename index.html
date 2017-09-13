@@ -1,3 +1,51 @@
 ---
-layout: default
+layout: page
+title: Categories
 ---
+
+<div class="tags-expo">
+
+{% comment %}
+=======================
+Retrieve all categories in the help collection.
+=======================
+{% endcomment %}
+
+{% assign categories =  site.help | map: 'categories' | join: ','  | split: ',' | uniq %}
+
+{% comment %}
+=======================
+List all categories in the help collection.
+=======================
+{% endcomment %}
+
+<div class="tags-expo-list">
+  {% for category in categories %}
+    <a href='#{{ category | slugify }}' class="post-tag">{{ category }}</a>
+  {% endfor %}
+</div>
+
+<br>
+
+{% comment %}
+=======================
+List all your pages by and within a given tag.
+=======================
+{% endcomment %}
+
+<div class="tags-expo-section">
+{% for category in categories %}
+  <h2 id='{{ category | slugify }}'>{{ category }}</h2>
+  <ul>
+  {% for help in site.help %}
+    {% if help.categories contains category %}
+    <li>
+      <a href='{{ site.baseurl }}{{ help.url }}'>{{ help.title }}</a>
+    </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+{% endfor %}
+</div>
+
+</div>
