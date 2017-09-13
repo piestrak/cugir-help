@@ -29,6 +29,6 @@ WMS (Web Map Service) is a standard OGC protocol...
 
 # Drafts
 
-Unpublished drafts should say `status: draft` until they are ready to be made public.  You can view a list of any drafts at https://cul-it.github.io/cugir-help/drafts
+Unpublished drafts should say `status: draft` until they are ready to be made public.  You can view a list of any drafts at https://cul-it.github.io/cugir-help/blog/drafts.
 
 
